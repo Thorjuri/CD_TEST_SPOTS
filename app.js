@@ -69,7 +69,6 @@ app.get('/mail', (req, res)=> {
 app.post('/api/mail', (req,res)=>{
   const {email} = req.body;
   sendEmail(email)
-  console.log(email)
 })
 
 // public room 목록 추출
