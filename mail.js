@@ -18,7 +18,7 @@ const sendEmail = (email, contents, teamName)=> {
         from: process.env.MAIL_ID, // 보내는 메일의 주소
         to: email, // 수신할 이메일
         subject: "SPOTS 매칭 예약 내역 안내", // 메일 제목
-        text: `🏸안녕하세요! 생활 체육시설 매칭 서비스 입니다! 제발 좀 돼라 아.. 서버에서는 되는데 왜 안 되죠??⚽`  // 메일 내용
+        text: `🏸안녕하세요! 생활 체육시설 매칭 서비스 입니다! 제발 좀 돼라 아.. 서버에서는 되는데 왜 안 되죠?? 불굴의 한국인⚽`  // 메일 내용
         };
       // 메일 발송    
     transporter.sendMail(mailOptions, function (error, info) {
