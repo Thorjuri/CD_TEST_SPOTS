@@ -14,6 +14,8 @@ const cors = require("cors");
 const errorHandlerMiddleware = require("./middlewares/error_handler_middleware");
 const auth_middleware = require("./middlewares/auth_middleware");
 require("./models");
+const sendEmail = require('./mail');
+const { dirname } = require("path");
 
 //app.use(express.json());
 app.use(express.json({
@@ -59,6 +61,16 @@ app.use(errorHandlerMiddleware);
 // app.get('/admin', (req, res)=> {
 //   res.render("admin")
 // });
+
+app.get('/mail', (req, res)=> {
+  res.sendFile(__dirname + '/mails.html')
+})
+
+app.post('/api/mail', (req,res)=>{
+  const {email} = req.body;
+  sendEmail(email)
+  console.log(email)
+})
 
 // public room 목록 추출
 function publicRooms(){ //객체의 구조 분해 할당 3겹 (io란 객체 안의, sockets 객체 안의, adapter 객체 안의 sids, rooms 란 객체)
